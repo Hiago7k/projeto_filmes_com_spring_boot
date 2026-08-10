@@ -18,8 +18,8 @@ public class ScreenmatchApplication implements CommandLineRunner {
 		var json = consumoApi.obterDados("https://www.omdbapi.com/?t=the+walking+dead&Season=1&apikey=6f533f65");
 		System.out.println(json);
 
-		json = consumoApi.obterDados("https://coffee.alexflipnote.dev/random.json");
-		System.out.println("Segunda requisição");
-		System.out.println(json);
+//		json = consumoApi.obterDados("https://coffee.alexflipnote.dev/random.json");
+//		System.out.println("Segunda requisição");
+//		System.out.println(json);
 	}
 }
