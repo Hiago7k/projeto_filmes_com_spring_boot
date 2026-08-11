@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch;
 
+import br.com.alura.screenmatch.models.DadosEpisodio;
 import br.com.alura.screenmatch.models.DadosSerie;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
@@ -27,5 +28,16 @@ public class ScreenmatchApplication implements CommandLineRunner {
 		ConverteDados conversor = new ConverteDados();
 		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
 		System.out.println(dados);
+
+		System.out.println("**********************************************");
+		System.out.println("Requisição e Resposta do EndPoint de episode");
+		System.out.println("**********************************************");
+
+		var consumoApiEp = new ConsumoApi();
+		var jsonEp = consumoApiEp.obterDados("https://www.omdbapi.com/?t=the+walking+dead&season=1&episode=1&apikey=6f533f65");
+		System.out.println(jsonEp);
+		DadosEpisodio dadosEp = conversor.obterDados(jsonEp, DadosEpisodio.class);
+		System.out.println(dadosEp);
+
 	}
 }
