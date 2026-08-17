@@ -15,9 +15,10 @@ private final String API_KEY = "&apikey=6f533f65";
 
     public void exibeMenu(){
         System.out.println("Digite o nome da série para busca");
-        var nomeSerie = leitura.next();
+        var nomeSerie = leitura.nextLine();
         var json = consumo.obterDados(ENDERECO + nomeSerie.replace(" ", "+") + API_KEY);
         DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
         System.out.println(dados);
+        System.out.println(nomeSerie);
     };
 }
