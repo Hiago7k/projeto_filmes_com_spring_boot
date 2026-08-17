@@ -28,7 +28,7 @@ private final String API_KEY = "&apikey=6f533f65";
         List<DadosTemporadas> temporadas = new ArrayList<>();
 
 		for (int i = 1 ; i<= dados.totalTemporadas(); i++){
-			var jsonTotalTmp = consumo.obterDados("https://www.omdbapi.com/?t=the+walking+dead&season=" + i + "&apikey=6f533f65");
+			var jsonTotalTmp = consumo.obterDados(ENDERECO + nomeSerie.replace(" ", "+") + "&season=" + i + API_KEY);
 			DadosTemporadas dadosTemporadas = conversor.obterDados(jsonTotalTmp, DadosTemporadas.class);
 			temporadas.add(dadosTemporadas);
 		}
