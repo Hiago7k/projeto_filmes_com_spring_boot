@@ -1,9 +1,12 @@
 package br.com.alura.screenmatch.Principal;
 
 import br.com.alura.screenmatch.models.DadosSerie;
+import br.com.alura.screenmatch.models.DadosTemporadas;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
@@ -20,5 +23,15 @@ private final String API_KEY = "&apikey=6f533f65";
         DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
         System.out.println(dados);
         System.out.println(nomeSerie);
+
+
+        List<DadosTemporadas> temporadas = new ArrayList<>();
+
+		for (int i = 1 ; i<= dados.totalTemporadas(); i++){
+			var jsonTotalTmp = consumo.obterDados("https://www.omdbapi.com/?t=the+walking+dead&season=" + i + "&apikey=6f533f65");
+			DadosTemporadas dadosTemporadas = conversor.obterDados(jsonTotalTmp, DadosTemporadas.class);
+			temporadas.add(dadosTemporadas);
+		}
+		temporadas.forEach(System.out::println);
     };
 }

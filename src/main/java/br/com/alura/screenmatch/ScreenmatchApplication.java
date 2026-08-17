@@ -16,14 +16,5 @@ public class ScreenmatchApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Principal principal = new Principal();
 		principal.exibeMenu();
-
-//        List<DadosTemporadas>  temporadas = new ArrayList<>();
-//
-//		for (int i = 1 ; i<= dados.totalTemporadas(); i++){
-//			var jsonTotalTmp = consumoApiEp.obterDados("https://www.omdbapi.com/?t=the+walking+dead&season=" + i + "&apikey=6f533f65");
-//			DadosTemporadas dadosTemporadas = conversor.obterDados(jsonTotalTmp, DadosTemporadas.class);
-//			temporadas.add(dadosTemporadas);
-//		}
-//		temporadas.forEach(System.out::println);
 	}
 }
