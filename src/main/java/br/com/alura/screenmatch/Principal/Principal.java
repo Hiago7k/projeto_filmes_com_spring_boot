@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.Principal;
 
+import br.com.alura.screenmatch.models.DadosEpisodio;
 import br.com.alura.screenmatch.models.DadosSerie;
 import br.com.alura.screenmatch.models.DadosTemporadas;
 import br.com.alura.screenmatch.service.ConsumoApi;
@@ -24,7 +25,6 @@ private final String API_KEY = "&apikey=6f533f65";
         System.out.println(dados);
         System.out.println(nomeSerie);
 
-
         List<DadosTemporadas> temporadas = new ArrayList<>();
 
 		for (int i = 1 ; i<= dados.totalTemporadas(); i++){
@@ -33,5 +33,12 @@ private final String API_KEY = "&apikey=6f533f65";
 			temporadas.add(dadosTemporadas);
 		}
 		temporadas.forEach(System.out::println);
+
+        for (int i = 0; i < dados.totalTemporadas(); i++){
+            List<DadosEpisodio> episodiosTemporada = temporadas.get(i).episodios();
+            for(int j = 0; j < episodiosTemporada.size(); j++){
+                System.out.println(episodiosTemporada.get(j).titulo());
+            }
+        }
     };
 }
