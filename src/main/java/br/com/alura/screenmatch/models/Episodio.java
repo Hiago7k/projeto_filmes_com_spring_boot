@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Episodio {
     private Integer temporada;
+    private String titulo;
     private Integer numeroEpisodio;
     private Double avaliacao;
     private LocalDate dataLancamento;
@@ -12,7 +13,13 @@ public class Episodio {
         this.temporada = numeroTemporada;
         this.titulo = dadosEpisodio.titulo();
         this.numeroEpisodio = dadosEpisodio.numero();
-        this.avaliacao = Double.valueOf(dadosEpisodio.avaliacao());
+
+        try{
+            this.avaliacao = Double.valueOf(dadosEpisodio.avaliacao());
+        }catch (NumberFormatException ex){
+            this.avaliacao = 0.0;
+        }
+
         this.dataLancamento = LocalDate.parse(dadosEpisodio.dataDeLancamento());
     }
 
@@ -24,12 +31,12 @@ public class Episodio {
         this.temporada = temporada;
     }
 
-    public Integer getNumero() {
-        return numero;
+    public Integer getnumeroEpisodio() {
+        return numeroEpisodio;
     }
 
-    public void setNumero(Integer numero) {
-        this.numero = numero;
+    public void setnumeroEpisodio(Integer numero) {
+        this.numeroEpisodio = numeroEpisodio;
     }
 
     public Double getAvaliacao() {
@@ -46,5 +53,30 @@ public class Episodio {
 
     public void setDataLancamento(LocalDate dataLancamento) {
         this.dataLancamento = dataLancamento;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Integer getNumeroEpisodio() {
+        return numeroEpisodio;
+    }
+
+    public void setNumeroEpisodio(Integer numeroEpisodio) {
+        this.numeroEpisodio = numeroEpisodio;
+    }
+
+    @Override
+    public String toString() {
+        return "temporada=" + temporada +
+                ", titulo='" + titulo + '\'' +
+                ", numeroEpisodio=" + numeroEpisodio +
+                ", avaliacao=" + avaliacao +
+                ", dataLancamento=" + dataLancamento;
     }
 }
