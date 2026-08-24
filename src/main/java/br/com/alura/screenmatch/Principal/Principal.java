@@ -3,6 +3,7 @@ package br.com.alura.screenmatch.Principal;
 import br.com.alura.screenmatch.models.DadosEpisodio;
 import br.com.alura.screenmatch.models.DadosSerie;
 import br.com.alura.screenmatch.models.DadosTemporadas;
+import br.com.alura.screenmatch.models.Episodio;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
 
@@ -55,5 +56,7 @@ private final String API_KEY = "&apikey=6f533f65";
                 .sorted(Comparator.comparing(DadosEpisodio::avaliacao).reversed())
                 .limit(5)
                 .forEach(System.out::println);
+
+        List<Episodio> episodios
     };
 }
