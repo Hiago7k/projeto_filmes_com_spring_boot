@@ -4,9 +4,17 @@ import java.time.LocalDate;
 
 public class Episodio {
     private Integer temporada;
-    private Integer numero;
+    private Integer numeroEpisodio;
     private Double avaliacao;
     private LocalDate dataLancamento;
+
+    public Episodio(Integer numeroTemporada, DadosEpisodio dadosEpisodio) {
+        this.temporada = numeroTemporada;
+        this.titulo = dadosEpisodio.titulo();
+        this.numeroEpisodio = dadosEpisodio.numero();
+        this.avaliacao = Double.valueOf(dadosEpisodio.avaliacao());
+        this.dataLancamento = LocalDate.parse(dadosEpisodio.dataDeLancamento());
+    }
 
     public Integer getTemporada() {
         return temporada;
