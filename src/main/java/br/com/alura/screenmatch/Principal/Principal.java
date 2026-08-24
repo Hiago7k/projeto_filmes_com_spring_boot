@@ -57,6 +57,9 @@ private final String API_KEY = "&apikey=6f533f65";
                 .limit(5)
                 .forEach(System.out::println);
 
-        List<Episodio> episodios
+        List<Episodio> episodios =  temporadas.stream()
+                .flatMap(t -> t.episodios().stream()
+                        .map(d -> new Episodio(t.numero(), d))
+                ).collecto(Collectors.toList());
     };
 }

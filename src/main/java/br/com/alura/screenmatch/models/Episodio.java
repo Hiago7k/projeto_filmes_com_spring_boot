@@ -7,4 +7,36 @@ public class Episodio {
     private Integer numero;
     private Double avaliacao;
     private LocalDate dataLancamento;
+
+    public Integer getTemporada() {
+        return temporada;
+    }
+
+    public void setTemporada(Integer temporada) {
+        this.temporada = temporada;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public Double getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(Double avaliacao) {
+        this.avaliacao = avaliacao;
+    }
+
+    public LocalDate getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public void setDataLancamento(LocalDate dataLancamento) {
+        this.dataLancamento = dataLancamento;
+    }
 }
