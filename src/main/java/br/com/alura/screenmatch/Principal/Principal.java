@@ -52,5 +52,7 @@ private final String API_KEY = "&apikey=6f533f65";
                 .flatMap(t -> t.episodios().stream())
                 .collect(Collectors.toList());
 
+        dadosEpisodios.add(new DadosEpisodio("Testando", 3, "10", "2026-01-01"));
+        dadosEpisodios.forEach(System.out::println);
     };
 }
