@@ -38,11 +38,13 @@ private final String API_KEY = "&apikey=6f533f65";
 //
 //        temporadas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
 
-        List<String> nomes =  Arrays.asList("Hiago", "Gabriel", "Everton", "Jesse", "Fernando");
+        List<String> nomes =  Arrays.asList("Hiago", "Gabriel", "Everton", "Jesse", "Nico");
 
         nomes.stream()
                 .sorted()
-                .limit(3)
+                .limit(5)
+                .filter(n -> n.startsWith("J"))
+                .map(n-> n.toUpperCase())
                 .forEach(System.out::println);
     };
 }
