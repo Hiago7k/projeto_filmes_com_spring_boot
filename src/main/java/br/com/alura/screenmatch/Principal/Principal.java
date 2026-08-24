@@ -50,8 +50,9 @@ private final String API_KEY = "&apikey=6f533f65";
                 .collect(Collectors.toList());
 
         System.out.println("\nTop 5 Episódios");
-        dadosEpisodios.stream().
-                sorted(Comparator.comparing(DadosEpisodio::avaliacao).reversed())
+        dadosEpisodios.stream()
+                .filter(e -> !e.avaliacao().equalsIgnoreCase("N/A"))
+                .sorted(Comparator.comparing(DadosEpisodio::avaliacao).reversed())
                 .limit(5)
                 .forEach(System.out::println);
     };
