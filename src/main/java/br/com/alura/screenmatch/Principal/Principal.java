@@ -55,9 +55,13 @@ private final String API_KEY = "&apikey=6f533f65";
         System.out.println("\nTop 5 Episódios");
         dadosEpisodios.stream()
                 .filter(e -> !e.avaliacao().equalsIgnoreCase("N/A"))
+                .peek(e-> System.out.println("Primeiro Filtro(N/A) " + e))
                 .sorted(Comparator.comparing(DadosEpisodio::avaliacao).reversed())
+                .peek(e-> System.out.println("Ordenação " + e))
                 .limit(10)
+                .peek(e-> System.out.println("Limitando " + e))
                 .map(e -> e.titulo().toUpperCase())
+                .peek(e-> System.out.println("Mapeamento " + e))
                 .forEach(System.out::println);
 
 //        List<Episodio> episodios =  temporadas.stream()
