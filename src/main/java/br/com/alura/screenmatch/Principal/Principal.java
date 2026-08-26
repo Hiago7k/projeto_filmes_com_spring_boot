@@ -72,18 +72,18 @@ private final String API_KEY = "&apikey=6f533f65";
         episodios.forEach(System.out::println);
 
         System.out.println("==================================================================");
-
-        System.out.println("Digite o nome do episódio que deseja");
-        String trechoTitulo = leitura.nextLine();
-        Optional<Episodio> episodioBuscado = episodios.stream()
-                .filter(e -> e.getTitulo().toUpperCase().contains(trechoTitulo.toUpperCase()))
-                .findFirst();
-                if(episodioBuscado.isPresent()){
-                    System.out.println("Episódio encontrado!");
-                    System.out.println("Temporada: " + episodioBuscado.get().getTemporada());
-                }else{
-                    System.out.println("Episódio não encontrado!");
-                }
+//
+//        System.out.println("Digite o nome do episódio que deseja");
+//        String trechoTitulo = leitura.nextLine();
+//        Optional<Episodio> episodioBuscado = episodios.stream()
+//                .filter(e -> e.getTitulo().toUpperCase().contains(trechoTitulo.toUpperCase()))
+//                .findFirst();
+//                if(episodioBuscado.isPresent()){
+//                    System.out.println("Episódio encontrado!");
+//                    System.out.println("Temporada: " + episodioBuscado.get().getTemporada());
+//                }else{
+//                    System.out.println("Episódio não encontrado!");
+//                }
 
 //
 //        System.out.println("A partir de que ano você deseja ver os episódios? ");
@@ -102,6 +102,7 @@ private final String API_KEY = "&apikey=6f533f65";
 //                ));
 
         Map<Integer, Double> avaliacoesPorTemporada = episodios.stream()
+                .filter(e -> e.getAvaliacao() > 0.0)
                 .collect(Collectors.groupingBy(Episodio::getTemporada,
                         Collectors.averagingDouble(Episodio::getAvaliacao)));
 
