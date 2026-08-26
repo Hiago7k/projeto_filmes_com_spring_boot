@@ -105,5 +105,6 @@ private final String API_KEY = "&apikey=6f533f65";
                 .collect(Collectors.groupingBy(Episodio::getTemporada,
                         Collectors.averagingDouble(Episodio::getAvaliacao)));
 
+                System.out.println(avaliacoesPorTemporada);
     };
 }
