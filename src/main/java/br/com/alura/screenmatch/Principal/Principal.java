@@ -107,5 +107,12 @@ private final String API_KEY = "&apikey=6f533f65";
                         Collectors.averagingDouble(Episodio::getAvaliacao)));
 
                 System.out.println(avaliacoesPorTemporada);
+
+        DoubleSummaryStatistics est = episodios.stream()
+                .filter(e -> e.getAvaliacao() > 0)
+                .collect(Collectors.summarizingDouble(Episodio::getAvaliacao));
+
+        System.out.println(est);
+
     };
 }
