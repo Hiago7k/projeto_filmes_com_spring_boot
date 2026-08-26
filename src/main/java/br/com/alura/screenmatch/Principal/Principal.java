@@ -112,7 +112,10 @@ private final String API_KEY = "&apikey=6f533f65";
                 .filter(e -> e.getAvaliacao() > 0)
                 .collect(Collectors.summarizingDouble(Episodio::getAvaliacao));
 
-        System.out.println(est);
+        System.out.println("Média: " + est.getAverage());
+        System.out.println("Pior Episódio: " + est.getMin());
+        System.out.println("Melhor Episódio: " + est.getMax());
+        System.out.println("Quantidade de Episódios: " + est.getCount());
 
     };
 }
