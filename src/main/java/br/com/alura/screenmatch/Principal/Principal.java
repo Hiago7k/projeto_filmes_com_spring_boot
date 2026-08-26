@@ -100,5 +100,10 @@ private final String API_KEY = "&apikey=6f533f65";
 //                        "Episodio: " + e.getTitulo() +
 //                        "Data de lançamento: " + e.getDataLancamento().format(formatador)
 //                ));
+
+        Map<Integer, Double> avaliacoesPorTemporada = episodios.stream()
+                .collect(Collectors.groupingBy(Episodio::getTemporada,
+                        Collectors.averagingDouble(Episodio::getAvaliacao)));
+
     };
 }
